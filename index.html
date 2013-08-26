@@ -5,6 +5,9 @@
 	<title>TowerOfHanoi</title>
 	<script src="http://a.tbcdn.cn/s/kissy/1.3.0/kissy-min.js"></script>
 	<script type="text/javascript">
+	var pageConf = {
+		num : 3
+	};
 	KISSY.getScript('iio/core/iioEngine.js',{success:function(){
 		var script;
 		if(KISSY.UA.mobile){
@@ -13,9 +16,16 @@
 			script = 'iio/hanoi.js';
 		}
 		KISSY.getScript(script,{success:function(){
+			var num = prompt("几层？","3");
+			if(!isNaN(num)){
+				pageConf.num = num;
+			}
 			iio.start(hanoi);
 		}});	
 	}});
+	function win(){
+		window.location.reload();
+	}
 	</script>
 </head>
 <body>
