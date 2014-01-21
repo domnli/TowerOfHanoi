@@ -62,6 +62,21 @@ hanoi = function(io){
 	io.addObj(cylinderTMP.setFillStyle('gray'));
 	io.addObj(cylinderD.setFillStyle('gray'));
 
+	// HELP TEXT
+	var textX = config.apex.lt.x + sampleRect.width / 2;
+	var textY = config.apex.lt.y + sampleRect.height / 5;
+
+	var helpText1 = new iio.Text('Base',textX - sampleRect.width / 4,textY)
+						    .setFont('20px Consolas')
+						    .setTextAlign('center')
+						    .setFillStyle('#00baff');
+	io.addObj(helpText1);
+	var helpText2 = new iio.Text('Target',textX + sampleRect.width / 4,textY)
+						    .setFont('20px Consolas')
+						    .setTextAlign('center')
+						    .setFillStyle('#00baff');
+	io.addObj(helpText2);
+
 	//layers init
 	var layerAmount = typeof pageConf == 'object' ? pageConf.num == undefined ? 3 : pageConf.num : 3;
 	layerAmount = layerAmount > 10 ? 10 : layerAmount;
